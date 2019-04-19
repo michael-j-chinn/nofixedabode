@@ -19,7 +19,7 @@ const Login = () => (
       <button type="submit">Login</button>
     </form>
     <p>
-      Don't have an account yet? <Link to={ROUTES.REGISTER}>Register</Link> here!
+      Don't have an account yet? <Link to={ROUTES.REGISTER}>Register</Link> here!!
     </p>
   </div>
 );
