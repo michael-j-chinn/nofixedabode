@@ -3,6 +3,7 @@ node_js:
   - "stable"
 script:
   - echo "Deploying!"
+  - npm run build
 install:
   - npm install -g firebase-tools
 after_success:
