@@ -1,6 +1,6 @@
 /* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+// import { Link, withRouter } from 'react-router-dom';
 import * as ROUTES from '../../constants/routes';
 import { withFirebase } from '../Firebase';
 import { compose } from 'recompose';
@@ -32,7 +32,7 @@ class RegistrationFormBase extends Component {
 
   onSubmit = (event) => {
     event.preventDefault();
-    const { username, email, passwordOne } = this.state;
+    const { email, passwordOne } = this.state;
 
     this.props.firebase
       .registerUserWithEmailAndPassword(email, passwordOne)
