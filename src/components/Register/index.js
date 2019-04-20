@@ -83,7 +83,7 @@ class RegistrationFormBase extends Component {
           name="email"
           value={email}
           onChange={this.onChange}
-          type="test"
+          type="text"
           placeholder="Email Address"
         />
         <input 
