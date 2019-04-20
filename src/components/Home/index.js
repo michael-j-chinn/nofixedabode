@@ -1,4 +1,5 @@
 import React from 'react';
+import { withAuthorization } from '../Session';
 
 const HomePage = () => (
 	<div>
@@ -6,4 +7,6 @@ const HomePage = () => (
 	</div>
 );
 
-export default HomePage;
+const authorizationCondition = authedUser => !!authedUser;
+
+export default withAuthorization(authorizationCondition)(HomePage);
