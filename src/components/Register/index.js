@@ -1,6 +1,6 @@
 /* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import * as ROUTES from '../../constants/routes';
 import { withFirebase } from '../Firebase';
 import { compose } from 'recompose';
@@ -10,6 +10,12 @@ const RegistrationPage = () => (
     <h1>Register</h1>
     <RegistrationForm />
   </div>
+);
+
+const RegistrationLink = () => (
+  <p>
+    Don't have an account? <Link to={ROUTES.REGISTER}>Register</Link>
+  </p>
 );
 
 const INITIAL_STATE = {
@@ -37,12 +43,10 @@ class RegistrationFormBase extends Component {
     this.props.firebase
       .registerUserWithEmailAndPassword(email, passwordOne)
       .then(authUser => {
-        console.log(authUser);
         this.setState({...INITIAL_STATE});
         this.props.history.push(ROUTES.HOME);
       })
       .catch(error => {
-        console.log(error);
         this.setState({ error });
       });
   };
@@ -109,12 +113,6 @@ const RegistrationForm = compose(
   withFirebase,
 )(RegistrationFormBase);
 
-// const RegistrationLink = () => {
-//   <p>
-//     Don't have an account? <Link to={ROUTES.REGISTER}>Register</Link>
-//   </p>
-// };
-
 export default RegistrationPage;
 
-export { RegistrationForm };
+export { RegistrationForm, RegistrationLink };
