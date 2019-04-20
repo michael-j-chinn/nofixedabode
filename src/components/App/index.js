@@ -6,6 +6,7 @@ import LoginPage from '../Login';
 import RegistrationPage from '../Register';
 import PasswordForgetPage from '../PasswordForget';
 import HomePage from '../Home';
+import AccountPage from '../Account';
 import { withAuthentication } from '../Session';
 
 const App = () => (
@@ -18,6 +19,7 @@ const App = () => (
       <Route path={ROUTES.REGISTER} component={RegistrationPage} />
       <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
       <Route path={ROUTES.HOME} component={HomePage} />
+      <Route path={ROUTES.ACCOUNT} component={AccountPage} />
     </div>
   </Router>
 );

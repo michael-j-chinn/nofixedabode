@@ -1,10 +1,34 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import { withFirebase } from '../Firebase';
+import * as ROUTES from '../../constants/routes';
+import { compose } from 'recompose';
 
-const LogoutButton = ({ firebase }) => (
-	<button type="button" onClick={firebase.logout}>
-		Logout
-	</button>
-);
+class LogoutButtonBase extends Component {
+	constructor(props) {
+		super(props);
 
-export default withFirebase(LogoutButton);
+		this.onClick = this.onClick.bind(this);
+	}
+
+	onClick = event => {
+		event.preventDefault();
+		this.props.firebase.logout();
+		this.props.history.push(ROUTES.LOGIN);
+	};
+
+	render() {
+		return (
+			<button type="button" onClick={this.onClick}>
+				Logout
+			</button>
+		);
+	}
+};
+
+const LogoutButton = compose(
+	withRouter,
+	withFirebase,
+)(LogoutButtonBase);
+
+export default LogoutButton;
