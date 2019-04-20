@@ -5,6 +5,7 @@ import * as ROUTES from '../../constants/routes';
 import LoginPage from '../Login';
 import RegistrationPage from '../Register';
 import HomePage from '../Home';
+import { withAuthentication } from '../Session';
 
 const App = () => (
   <Router>
@@ -19,4 +20,4 @@ const App = () => (
   </Router>
 );
 
-export default App;
+export default withAuthentication(App);
