@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { RegistrationLink } from '../Register';
+import { PasswordForgetLink } from '../PasswordForget';
 import { compose } from 'recompose';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
@@ -9,6 +10,7 @@ const LoginPage = () => (
   <div>
     <h1>Login</h1>
     <LoginForm />
+    <PasswordForgetLink />
     <RegistrationLink />
   </div>
 );
