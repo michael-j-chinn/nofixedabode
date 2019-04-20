@@ -5,23 +5,27 @@ import LogoutButton from '../Logout';
 import { AuthenticationContext } from '../Session';
 
 const NavigationNonAuthedUser = () => (
-  <ul>
-    <li><Link to={ROUTES.LOGIN}>Login</Link></li>
-  </ul>
+  <Link to={ROUTES.LOGIN}>Login</Link>
 );
 
 const NavigationAuthedUser = () => (
-  <ul>
-    <li><Link to={ROUTES.HOME}>Home</Link></li>
-    <li><LogoutButton /></li>
-  </ul>
+  <LogoutButton />
 );
 
 const Navigation = () => (
   <nav>
-    <AuthenticationContext.Consumer>
-      {authedUser => authedUser ? <NavigationAuthedUser /> : <NavigationNonAuthedUser />}
-    </AuthenticationContext.Consumer>
+    <ul>
+      <li><Link to={ROUTES.HOME}>Home</Link></li>
+      <li><Link to={ROUTES.ABOUT}>About</Link></li>
+      <li><Link to={ROUTES.GET_HELP}>Get Help</Link></li>
+      <li><Link to={ROUTES.GIVE_HELP}>Give Help</Link></li>
+      <li><Link to={ROUTES.EVENTS}>Events</Link></li>
+      <li>
+      <AuthenticationContext.Consumer>
+        {authedUser => authedUser ? <NavigationAuthedUser /> : <NavigationNonAuthedUser />}
+      </AuthenticationContext.Consumer>
+      </li>
+    </ul>
   </nav>
 );
 
