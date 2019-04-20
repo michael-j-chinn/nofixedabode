@@ -34,7 +34,7 @@ class Firebase {
 	};
 
 	updateCurrentUsersPassword = (password) => {
-		return this.auth.updateCurrentUsersPassword(password);
+		return this.auth.currentUser.updatePassword(password);
 	}
 }
 

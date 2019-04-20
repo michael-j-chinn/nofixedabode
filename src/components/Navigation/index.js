@@ -13,6 +13,7 @@ const NavigationNonAuthedUser = () => (
 const NavigationAuthedUser = () => (
   <ul>
     <li><Link to={ROUTES.HOME}>Home</Link></li>
+    <li><Link to={ROUTES.ACCOUNT}>Account</Link></li>
     <li><LogoutButton /></li>
   </ul>
 );
