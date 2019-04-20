@@ -25,14 +25,16 @@ class Firebase {
 		return this.auth.signInWithEmailAndPassword(email, password);
 	}
 
-	logout = () => this.auth.signOut();
+	logout = () => {
+		return this.auth.signOut();
+	};
 
 	sendPasswordResetEmail = (email) => {
-		this.auth.sendPasswordResetEmail(email);
+		return this.auth.sendPasswordResetEmail(email);
 	};
 
 	updateCurrentUsersPassword = (password) => {
-		this.auth.updateCurrentUsersPassword(password);
+		return this.auth.updateCurrentUsersPassword(password);
 	}
 }
 
