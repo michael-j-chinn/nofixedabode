@@ -13,3 +13,6 @@ deploy:
     secure: $FIREBASE_TOKEN
   on:
     branch: master
+branches:
+  only:
+  - master
