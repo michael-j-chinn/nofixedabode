@@ -13,12 +13,17 @@ const withAuthentication = Component => {
 		}
 
 		componentDidMount() {
-			this.listener = this.props.firebase.auth
-				.onAuthStateChanged(authedUser => {
-					authedUser
-						? this.setState({ authedUser })
-						: this.setState({ authedUser: null });
-				});
+			this.listener = this.props.firebase.auth.onAuthStateChanged(authedUser => {
+				if (authedUser) {
+					authedUser.getIdTokenResult()
+						.then(idTokenResult => {
+							authedUser.claims = idTokenResult.claims;
+							this.setState({ authedUser });
+						});
+				} else {
+					this.setState({ authedUser: null });
+				}
+			});
 		}
 
 		componentWillUnmount() {

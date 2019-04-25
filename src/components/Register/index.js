@@ -4,11 +4,13 @@ import { Link, withRouter } from 'react-router-dom';
 import * as ROUTES from '../../constants/routes';
 import { withFirebase } from '../Firebase';
 import { compose } from 'recompose';
+import { LoginLink } from '../Login';
 
 const RegistrationPage = () => (
   <div>
     <h1>Register</h1>
     <RegistrationForm />
+    <LoginLink />
   </div>
 );
 

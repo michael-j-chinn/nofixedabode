@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { RegistrationLink } from '../Register';
 import { PasswordForgetLink } from '../PasswordForget';
 import { compose } from 'recompose';
@@ -13,6 +13,10 @@ const LoginPage = () => (
     <PasswordForgetLink />
     <RegistrationLink />
   </div>
+);
+
+const LoginLink = () => (
+  <p>Already have an account? <Link to={ROUTES.LOGIN}>Login</Link></p>
 );
 
 const INITIAL_STATE = {
@@ -89,4 +93,4 @@ const LoginForm = compose(
 
 export default LoginPage;
 
-export { LoginForm };
+export { LoginForm, LoginLink };
